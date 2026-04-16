@@ -1,0 +1,17 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+
+@theme {
+  --color-fd-primary: oklch(0.65 0.19 41);
+  --color-fd-primary-foreground: oklch(1 0 0);
+}
+
+.dark {
+  --color-fd-primary: oklch(0.75 0.16 41);
+  --color-fd-primary-foreground: oklch(0.15 0 0);
+}
+
+:root {
+  --fd-layout-width: 1400px;
+}

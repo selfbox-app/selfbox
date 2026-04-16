@@ -1,0 +1,48 @@
+import { sql } from "drizzle-orm";
+import { eq } from "drizzle-orm";
+import { createRouter, workspaceProcedure } from "../init";
+import { workspaces, files, folders } from "@selfbox/database";
+import { shouldEnforceQuota } from "../../storage";
+
+export const storageRouter = createRouter({
+  usage: workspaceProcedure.query(async ({ ctx }) => {
+    const [workspace] = await ctx.db
+      .select({
+        storageUsed: workspaces.storageUsed,
+        storageLimit: workspaces.storageLimit,
+      })
+      .from(workspaces)
+      .where(eq(workspaces.id, ctx.workspaceId));
+
+    const [fileCount] = await ctx.db
+      .select({ count: sql<number>`count(*)` })
+      .from(files)
+      .where(eq(files.workspaceId, ctx.workspaceId));
+
+    const [folderCount] = await ctx.db
+      .select({ count: sql<number>`count(*)` })
+      .from(folders)
+      .where(eq(folders.workspaceId, ctx.workspaceId));
+
+    const enforceQuota = await shouldEnforceQuota(ctx.workspaceId);
+
+    const platformProvider =
+      process.env.BLOB_STORAGE_PROVIDER ??
+      (process.env.RAILWAY_ENVIRONMENT_NAME ? "railway" : "local");
+
+    return {
+      used: workspace?.storageUsed ?? 0,
+      limit: enforceQuota ? (workspace?.storageLimit ?? 0) : null,
+      fileCount: Number(fileCount?.count ?? 0),
+      folderCount: Number(folderCount?.count ?? 0),
+      percentage:
+        enforceQuota && workspace
+          ? Math.round(
+              ((workspace.storageUsed ?? 0) / (workspace.storageLimit ?? 1)) *
+                100,
+            )
+          : null,
+      platformProvider,
+    };
+  }),
+});

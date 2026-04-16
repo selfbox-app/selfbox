@@ -1,0 +1,33 @@
+{
+  "name": "@selfbox/docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "portless run next dev --turbopack",
+    "dev:clean": "pnpm clean && pnpm dev",
+    "build": "next build",
+    "rebuild": "pnpm clean && pnpm build",
+    "clean": "rm -rf .next .source",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "fumadocs-core": "^16.7.0",
+    "fumadocs-mdx": "^14.2.0",
+    "fumadocs-ui": "^16.7.0",
+    "@types/mdx": "^2.0.0",
+    "next": "^16.2.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "geist": "^1.7.0",
+    "lucide-react": "^0.577.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.2.1",
+    "@types/node": "^25.5.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "tailwindcss": "^4.2.1",
+    "typescript": "^5.9.3"
+  }
+}

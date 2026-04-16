@@ -1,0 +1,38 @@
+[package]
+name = "selfbox-desktop-sync"
+version = "0.1.0"
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dev-dependencies]
+tempfile = "3"
+mockito = "1"
+tokio = { version = "1", features = ["full", "test-util", "macros"] }
+
+[dependencies]
+tauri = { version = "2", features = ["tray-icon"] }
+tauri-plugin-shell = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+tauri-plugin-autostart = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+tokio = { version = "1", features = ["full"] }
+futures = "0.3"
+reqwest = { version = "0.12", features = ["json"] }
+bytes = "1"
+mime_guess = "2"
+rusqlite = { version = "0.32", features = ["bundled"] }
+sha2 = "0.10"
+notify = "7"
+keyring = "3"
+dirs = "6"
+chrono = { version = "0.4", features = ["serde"] }
+uuid = { version = "1", features = ["v4"] }
+log = "0.4"
+env_logger = "0.11"
+thiserror = "2"
+tauri-plugin-updater = "2.10.1"
+tauri-plugin-process = "2.3.1"

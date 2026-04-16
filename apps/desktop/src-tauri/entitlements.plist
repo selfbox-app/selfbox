@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <!--
+    Hardened runtime entitlements. Apple notarization rejects the bundle
+    if any of these are loosened without justification, so each one below
+    is paired with a comment explaining why we need it.
+
+    Defaults are deliberately strict (false). Loosen only if a real
+    runtime failure makes it necessary, and document the reason here.
+  -->
+
+  <!-- We do not JIT or rewrite executable memory; keep this off. -->
+  <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+  <false/>
+
+  <!-- All linked libraries are signed by us or by Apple; keep validation on. -->
+  <key>com.apple.security.cs.disable-library-validation</key>
+  <false/>
+
+  <!-- The sync engine talks to the Selfbox server over HTTPS. -->
+  <key>com.apple.security.network.client</key>
+  <true/>
+
+  <!--
+    The `keyring` Rust crate stores the device's refresh token in the
+    macOS Keychain. Notarization requires explicit access groups for any
+    Keychain item the app touches.
+  -->
+  <key>keychain-access-groups</key>
+  <array>
+    <string>$(AppIdentifierPrefix)com.selfbox.desktop-sync</string>
+  </array>
+</dict>
+</plist>

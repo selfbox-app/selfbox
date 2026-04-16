@@ -1,0 +1,164 @@
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&family=IBM+Plex+Serif:ital@0;1&display=swap");
+@import "tailwindcss";
+
+/* ── Theme tokens ────────────────────────────────────────────────────── */
+
+@theme {
+  --font-sans:
+    "Geist", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-mono:
+    "Geist Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-serif:
+    "IBM Plex Serif", Georgia, Cambria, "Times New Roman", serif;
+
+  /* Selfbox brand — warm orange */
+  --color-brand-50: oklch(0.98 0.02 50);
+  --color-brand-100: oklch(0.95 0.04 48);
+  --color-brand-200: oklch(0.88 0.08 45);
+  --color-brand-300: oklch(0.80 0.13 43);
+  --color-brand-400: oklch(0.72 0.17 42);
+  --color-brand-500: oklch(0.65 0.19 41);
+  --color-brand-600: oklch(0.58 0.19 41);
+  --color-brand-700: oklch(0.50 0.17 41);
+  --color-brand-800: oklch(0.40 0.14 41);
+  --color-brand-900: oklch(0.30 0.10 41);
+
+  /* Warm-tinted neutrals (slight warmth toward the brand hue) */
+  --color-paper: oklch(0.995 0.003 65);
+  --color-surface: oklch(0.98 0.004 65);
+  --color-surface-raised: oklch(0.96 0.005 60);
+  --color-border: oklch(0.90 0.006 55);
+  --color-border-strong: oklch(0.84 0.008 55);
+  --color-muted: oklch(0.55 0.012 55);
+  --color-subtle: oklch(0.70 0.010 55);
+  --color-ink: oklch(0.22 0.012 55);
+  --color-ink-strong: oklch(0.14 0.014 55);
+
+  /* Semantic */
+  --color-success: oklch(0.62 0.14 150);
+  --color-warning: oklch(0.72 0.16 75);
+  --color-danger: oklch(0.58 0.18 25);
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+}
+
+/* Dark mode — warm-tinted, not cold */
+@media (prefers-color-scheme: dark) {
+  @theme {
+    --color-paper: oklch(0.145 0.008 55);
+    --color-surface: oklch(0.17 0.008 55);
+    --color-surface-raised: oklch(0.20 0.009 55);
+    --color-border: oklch(0.26 0.010 55);
+    --color-border-strong: oklch(0.32 0.010 55);
+    --color-muted: oklch(0.60 0.012 55);
+    --color-subtle: oklch(0.48 0.010 55);
+    --color-ink: oklch(0.94 0.006 65);
+    --color-ink-strong: oklch(0.98 0.004 65);
+
+    --color-brand-500: oklch(0.72 0.17 42);
+    --color-brand-600: oklch(0.65 0.19 41);
+    --color-brand-700: oklch(0.58 0.18 41);
+  }
+}
+
+/* Manual theme override (set on <html>) */
+html[data-theme="dark"] {
+  --color-paper: oklch(0.145 0.008 55);
+  --color-surface: oklch(0.17 0.008 55);
+  --color-surface-raised: oklch(0.20 0.009 55);
+  --color-border: oklch(0.26 0.010 55);
+  --color-border-strong: oklch(0.32 0.010 55);
+  --color-muted: oklch(0.60 0.012 55);
+  --color-subtle: oklch(0.48 0.010 55);
+  --color-ink: oklch(0.94 0.006 65);
+  --color-ink-strong: oklch(0.98 0.004 65);
+  --color-brand-500: oklch(0.72 0.17 42);
+  --color-brand-600: oklch(0.65 0.19 41);
+}
+
+html[data-theme="light"] {
+  --color-paper: oklch(0.995 0.003 65);
+  --color-surface: oklch(0.98 0.004 65);
+  --color-surface-raised: oklch(0.96 0.005 60);
+  --color-border: oklch(0.90 0.006 55);
+  --color-border-strong: oklch(0.84 0.008 55);
+  --color-muted: oklch(0.55 0.012 55);
+  --color-subtle: oklch(0.70 0.010 55);
+  --color-ink: oklch(0.22 0.012 55);
+  --color-ink-strong: oklch(0.14 0.014 55);
+  --color-brand-500: oklch(0.65 0.19 41);
+  --color-brand-600: oklch(0.58 0.19 41);
+}
+
+/* ── Base ────────────────────────────────────────────────────────────── */
+
+* {
+  border-color: var(--color-border);
+}
+
+html,
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  font-feature-settings: "cv11", "ss01";
+  letter-spacing: -0.005em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+  user-select: none;
+  overflow: hidden;
+}
+
+/* Tauri drag region */
+[data-tauri-drag-region] {
+  -webkit-app-region: drag;
+}
+
+button,
+a,
+input,
+select,
+[data-no-drag] {
+  -webkit-app-region: no-drag;
+}
+
+/* Focus ring — orange, visible, considered */
+*:focus-visible {
+  outline: 2px solid var(--color-brand-500);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Custom scrollbar — subtle */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-strong);
+}

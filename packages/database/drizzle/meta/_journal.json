@@ -1,0 +1,146 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1775010613714,
+      "tag": "0000_outgoing_maelstrom",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1775015162419,
+      "tag": "0001_certain_mockingbird",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1775052407430,
+      "tag": "0002_awesome_eddie_brock",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1775053425414,
+      "tag": "0003_damp_wrecking_crew",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1775054727510,
+      "tag": "0004_wealthy_stranger",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1775166427743,
+      "tag": "0005_flaky_lady_deathstrike",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1775223897365,
+      "tag": "0006_slim_nick_fury",
+      "breakpoints": true
+    },
+    {
+      "idx": 7,
+      "version": "7",
+      "when": 1775241751639,
+      "tag": "0007_graceful_meltdown",
+      "breakpoints": true
+    },
+    {
+      "idx": 8,
+      "version": "7",
+      "when": 1775243284449,
+      "tag": "0008_gray_wendell_rand",
+      "breakpoints": true
+    },
+    {
+      "idx": 9,
+      "version": "7",
+      "when": 1775337039377,
+      "tag": "0009_dear_captain_marvel",
+      "breakpoints": true
+    },
+    {
+      "idx": 10,
+      "version": "7",
+      "when": 1775470879061,
+      "tag": "0010_common_ben_parker",
+      "breakpoints": true
+    },
+    {
+      "idx": 11,
+      "version": "7",
+      "when": 1775474829554,
+      "tag": "0011_legal_boomerang",
+      "breakpoints": true
+    },
+    {
+      "idx": 12,
+      "version": "7",
+      "when": 1775560000000,
+      "tag": "0012_selfbox_notifications",
+      "breakpoints": true
+    },
+    {
+      "idx": 13,
+      "version": "7",
+      "when": 1775570000000,
+      "tag": "0013_selfbox_knowledge_bases",
+      "breakpoints": true
+    },
+    {
+      "idx": 14,
+      "version": "7",
+      "when": 1775580000000,
+      "tag": "0014_selfbox_kb_messages_text_id",
+      "breakpoints": true
+    },
+    {
+      "idx": 15,
+      "version": "7",
+      "when": 1775590000000,
+      "tag": "0015_selfbox_kb_file_ingestions",
+      "breakpoints": true
+    },
+    {
+      "idx": 16,
+      "version": "7",
+      "when": 1775600000000,
+      "tag": "0016_selfbox_kb_tags",
+      "breakpoints": true
+    },
+    {
+      "idx": 17,
+      "version": "7",
+      "when": 1775899239843,
+      "tag": "0017_add_assistant_tables",
+      "breakpoints": true
+    },
+    {
+      "idx": 18,
+      "version": "7",
+      "when": 1775910000000,
+      "tag": "0018_desktop_sync_foundation",
+      "breakpoints": true
+    },
+    {
+      "idx": 19,
+      "version": "7",
+      "when": 1776152241782,
+      "tag": "0019_desktop_idempotency_keys",
+      "breakpoints": true
+    }
+  ]
+}
